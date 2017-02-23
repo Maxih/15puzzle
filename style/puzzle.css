@@ -1,0 +1,135 @@
+.game-wrapper {
+  text-align: center;
+
+  font-family: 'Roboto', sans-serif;
+  width: 400px;
+  display: block;
+  margin: 100px auto;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 40px;
+  color: #9cd5f9;
+  font-family: 'Bungee Shade', cursive;
+
+}
+
+.puzzle {
+  position: relative;
+  display: block;
+  height: 400px;
+}
+
+.loading {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  text-transform: uppercase;
+  display: none;
+}
+
+.setup .loading {
+  display: inline-block;;
+
+}
+
+.setup span {
+  opacity: .2;
+}
+
+.puzzle span {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background: #C2E5FC;
+  position: absolute;
+  transition: left 250ms, top 250ms, background-color 250ms, opacity 500ms;
+  box-sizing: border-box;
+  border: 2px solid #FFF;
+  font-size: 40px;
+  border-radius: 1px;
+  color: #FFF;
+}
+
+.puzzle.setup span {
+  transition: left 25ms, top 25ms;
+}
+
+
+.puzzle span::after {
+  content: attr(id);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.puzzle span.highlighted {
+  background: #9cd5f9;
+  cursor: pointer;
+}
+
+.puzzle span.blank {
+  background: transparent;
+  border-color: transparent;
+}
+
+.puzzle span.blank::after {
+  content: "";
+}
+
+.shuffle {
+  color: #9cd5f9;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 250ms;
+  margin-top: 40px;
+}
+
+.shuffle:hover {
+  opacity: 0.5;
+}
+
+.spinner {
+  text-align: center;
+}
+
+.spinner > div {
+  width: 26px;
+  height: 26px;
+  background-color: #9cd5f9;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
